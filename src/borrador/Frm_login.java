@@ -21,7 +21,7 @@ import javax.sql.rowset.CachedRowSet;
 
 /**
  *
- * @author Estructura de Datos D1
+ * @author Raul
  */
 public class Frm_login extends javax.swing.JFrame {
 
@@ -51,10 +51,10 @@ public class Frm_login extends javax.swing.JFrame {
 
     }
     public static String usuario = "";
-   /** public Image getIconImage(){
+    public Image getIconImage(){
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/imagenes/icono.png"));
         return retValue;
-    } */
+    } 
 
     public void validarusuario() {
 

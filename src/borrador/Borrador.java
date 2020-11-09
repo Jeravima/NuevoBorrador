@@ -22,7 +22,7 @@ public class Borrador {
         
         
         
-        Frm_login.main(args);
+        Splash.main(args);
         
        
     }
