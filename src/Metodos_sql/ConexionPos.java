@@ -23,7 +23,7 @@ public class ConexionPos {
                     Class.forName("org.postgresql.Driver");
  
                     String url = "jdbc:postgresql://127.0.0.1:8080/postgres";
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/unipaz", "root","");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/esc_ip", "root","");
                     Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
                                                       ResultSet.CONCUR_READ_ONLY);
  

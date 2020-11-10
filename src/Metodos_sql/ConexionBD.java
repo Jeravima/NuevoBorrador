@@ -8,7 +8,7 @@ public class ConexionBD {
 
     public static String url = "jdbc:mysql://localhost/esc_ip";
     public static String usuario = "root";
-    public static String contraseña = "root";
+    public static String contraseña = "";
     public static String clase = "com.mysql.jdbc.Driver";
 
     public static Connection conectar() {
