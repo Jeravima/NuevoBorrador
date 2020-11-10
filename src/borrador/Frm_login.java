@@ -28,9 +28,8 @@ public class Frm_login extends javax.swing.JFrame {
     /**
      * Creates new form Frm_login
      */
-    ConexionBD cc = new ConexionBD();
-    Connection con = cc.conectar();
-    String nombre;
+
+    String public Nombre_Admin;
     private Object cmdAceptar;
 
     public Frm_login() {
@@ -59,6 +58,9 @@ public class Frm_login extends javax.swing.JFrame {
     
     
     public void validarusuario() {
+        
+        ConexionBD cc = new ConexionBD();
+        Connection con = cc.conectar();
 
         int resultado = 0;
         String pass = String.valueOf(txtPass.getPassword());
@@ -78,11 +80,13 @@ public class Frm_login extends javax.swing.JFrame {
 
                     Frm_menu form = new Frm_menu();
                     form.setVisible(true);
-
                     this.dispose();
-
-                    JOptionPane.showMessageDialog(this, "Bienvenido " + usuario);
-                    nombre = usuario;
+                        
+                    //Busca el nombre del docente, tenga en cuenta que es una variable publica y la puede utilizar 
+                    //en todos los frames
+                    Nombre_Admin = rs.getString("Nombre_Docente");
+                    JOptionPane.showMessageDialog(this, "Bienvenido " + Nombre_Admin);
+                    
 
                 }
 
@@ -208,9 +212,6 @@ public class Frm_login extends javax.swing.JFrame {
     private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
 
         validarusuario();
-        Frm_menu ventana = new Frm_menu();
-        ventana.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnentrarActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -222,11 +223,8 @@ public class Frm_login extends javax.swing.JFrame {
         usuario = txtUsuario.getText();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            JOptionPane.showMessageDialog(this, "Bienvenido " + usuario);
-            nombre = usuario;
-            Frm_menu ventana = new Frm_menu();
-            ventana.setVisible(true);
-            this.dispose();
+            validarusuario();
+        
         }
     }//GEN-LAST:event_txtPassKeyPressed
 
