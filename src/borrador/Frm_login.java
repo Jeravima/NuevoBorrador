@@ -29,7 +29,7 @@ public class Frm_login extends javax.swing.JFrame {
      * Creates new form Frm_login
      */
 
-    String public Nombre_Admin;
+    public static String Nombre_Admin;
     private Object cmdAceptar;
 
     public Frm_login() {
@@ -50,7 +50,6 @@ public class Frm_login extends javax.swing.JFrame {
 
     }
     public static String usuario = "";
-
     /*public Image getIconImage(){
      Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/imagenes/icono.png"));
      return retValue;
@@ -65,7 +64,7 @@ public class Frm_login extends javax.swing.JFrame {
         int resultado = 0;
         String pass = String.valueOf(txtPass.getPassword());
         String usuario = txtUsuario.getText();
-        String SQL = "select * from docente where Nombre_docente='" + usuario + "' and Password='" + pass + "';";
+        String SQL = "select * from docente where Id_docente='" + usuario + "' and Password='" + pass + "';";
 
         try {
 
