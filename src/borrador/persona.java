@@ -9,15 +9,19 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class persona extends javax.swing.JFrame {
     
-    public static final String URL = "jdbc:mysql://localhost/unipaz"; //Direccion, puerto y nombre de la Base de Datos
+    public static final String URL = "jdbc:mysql://localhost/esc_ip"; //Direccion, puerto y nombre de la Base de Datos
     public static final String USERNAME = "root"; //Usuario de Acceso a MySQL
     public static final String PASSWORD = ""; //Password del usuario
     
@@ -51,10 +55,23 @@ public class persona extends javax.swing.JFrame {
  }
     
     public persona() {
+        //Codigo para cambiar la apariencia de las aplicaciones java
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Borrador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Borrador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Borrador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Borrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../Imagenes/icono.png")).getImage());
         setSize(470,600);
         setLocationRelativeTo(null);
-        
         ((JPanel) getContentPane()).setOpaque(false);
         ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagenes/470x600.png"));
         JLabel fondo = new JLabel();

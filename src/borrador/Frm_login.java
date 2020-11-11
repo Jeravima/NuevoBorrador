@@ -11,29 +11,22 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Metodos_sql.ConexionBD;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.sql.rowset.CachedRowSet;
 
-/**
- *
- * @author Raul
- */
 public class Frm_login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frm_login
-     */
-
     public static String Nombre_Admin;
+    public static String user;
+
     private Object cmdAceptar;
 
     public Frm_login() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../Imagenes/icono.png")).getImage());
         setTitle("NOTI-PAZ");
         setSize(440, 520);
         setLocationRelativeTo(null);
@@ -49,15 +42,11 @@ public class Frm_login extends javax.swing.JFrame {
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
     }
-    public static String usuario = "";
-    /*public Image getIconImage(){
-     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/imagenes/icono.png"));
-     return retValue;
-     } */
+
     
-    
+
     public void validarusuario() {
-        
+
         ConexionBD cc = new ConexionBD();
         Connection con = cc.conectar();
 
@@ -80,12 +69,11 @@ public class Frm_login extends javax.swing.JFrame {
                     Frm_menu form = new Frm_menu();
                     form.setVisible(true);
                     this.dispose();
-                        
+
                     //Busca el nombre del docente, tenga en cuenta que es una variable publica y la puede utilizar 
                     //en todos los frames
                     Nombre_Admin = rs.getString("Nombre_Docente");
                     JOptionPane.showMessageDialog(this, "Bienvenido " + Nombre_Admin);
-                    
 
                 }
 
@@ -219,11 +207,11 @@ public class Frm_login extends javax.swing.JFrame {
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
         //Evento para entrar al dar enter.
-        usuario = txtUsuario.getText();
+        
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
             validarusuario();
-        
+
         }
     }//GEN-LAST:event_txtPassKeyPressed
 

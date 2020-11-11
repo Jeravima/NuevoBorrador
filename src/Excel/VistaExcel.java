@@ -3,7 +3,6 @@ package Excel;
 import Excel.ControladorExcel;
 import borrador.Frm_login;
 import borrador.Frm_menu;
-import borrador.Mostrar_alumnos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -14,6 +13,7 @@ public class VistaExcel extends javax.swing.JFrame {
 
     public VistaExcel() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../Imagenes/icono.png")).getImage());
         setSize(1200, 700);
         setLocationRelativeTo(null);
         ((JPanel) getContentPane()).setOpaque(false);
@@ -28,8 +28,8 @@ public class VistaExcel extends javax.swing.JFrame {
          * del frame anterior para
          * mostrar el mensaje de bienvenida 
         */
-        Frm_login nombre = new Frm_login();
-        jLabel_Nombre.setText("BIENVENIDO "+nombre.usuario.toUpperCase());
+        //Frm_login nombre = new Frm_login();
+        //jLabel_Nombre.setText("BIENVENIDO "+nombre.usuario.toUpperCase());
         
         
     }
@@ -225,9 +225,9 @@ public class VistaExcel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_nuevoActionPerformed
 
     private void jButton_definitivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_definitivaActionPerformed
-            Mostrar_alumnos nueva = new Mostrar_alumnos();
+            /*Mostrar_alumnos nueva = new Mostrar_alumnos();
             nueva.setVisible(true);
-            this.setVisible(false);
+            this.setVisible(false);*/
     }//GEN-LAST:event_jButton_definitivaActionPerformed
 
     private void jButton_informeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_informeActionPerformed

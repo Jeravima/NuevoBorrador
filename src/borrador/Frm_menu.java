@@ -45,6 +45,7 @@ public class Frm_menu extends javax.swing.JFrame {
         }
 
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../Imagenes/icono.png")).getImage());
         setSize(487, 460);
         setLocationRelativeTo(null);
         ((JPanel) getContentPane()).setOpaque(false);
@@ -57,9 +58,9 @@ public class Frm_menu extends javax.swing.JFrame {
         /**
          * Con este metodo llamamos la variable usuario del frame anterior para
          * mostrar el mensaje de bienvenida
-         */
-        Frm_login nombre = new Frm_login();
-        jLabelNombre.setText("BIENVENIDO " + nombre.Nombre_Admin.toUpperCase());
+         
+        Frm_login nombre = new Frm_login(); 
+        jLabelNombre.setText("Bienvenido"+Frm_login.user.toUpperCase());*/
         
         
               
@@ -70,6 +71,29 @@ public class Frm_menu extends javax.swing.JFrame {
      Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/imagenes/icono.png"));
      return retValue;
      } */
+    
+   /* public void llenarJCombo() {
+
+        String colegio = (String) jComboBox2.getSelectedItem();
+
+        if (colegio.equals("Seleccione Institucion")) {
+
+            mostrartabla("");
+
+        } else {
+
+            mostrartabla(colegio);
+
+            for (int i = 0; i <= tabla_registros_alumnos.getRowCount(); i++) {
+
+                txtcantidad.setText(" " + i);
+
+            }
+        }
+
+    }
+    
+    */
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
