@@ -44,7 +44,7 @@ public class Frm_login extends javax.swing.JFrame {
     }
 
     
-
+    
     public void validarusuario() {
 
         ConexionBD cc = new ConexionBD();
@@ -89,6 +89,10 @@ public class Frm_login extends javax.swing.JFrame {
 
     }
 
+  public static String Id_profesor = "1096200755";
+
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

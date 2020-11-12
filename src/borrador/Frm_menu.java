@@ -14,22 +14,20 @@ import AppPackage.AnimationClass;
 import Excel.VistaExcel;
 import Excel.ControladorExcel;
 import Excel.ModeloExcel;
-import java.awt.Image;
-import java.awt.Toolkit;
+import Metodos_sql.ConexionBD;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author Carlos Felipe
- */
+
 public class Frm_menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frm_menu
-     */
+   
     public Frm_menu() {
         //Codigo para cambiar la apariencia de las aplicaciones java
         try {
@@ -67,33 +65,32 @@ public class Frm_menu extends javax.swing.JFrame {
 
     }
 
-   /* public Image getIconImage(){
-     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/imagenes/icono.png"));
-     return retValue;
-     } */
     
-   /* public void llenarJCombo() {
+    public void llenarComboMaterias(JComboBox jComboBox2) {
 
-        String colegio = (String) jComboBox2.getSelectedItem();
+        ConexionBD cc = new ConexionBD();
+        Connection con = cc.conectar();
+        try {
 
-        if (colegio.equals("Seleccione Institucion")) {
+            String SQL = "SELECT Asignatura_1 FROM docente where Id_docente='"+Id_profesor+ "';";
 
-            mostrartabla("");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
 
-        } else {
+            while (rs.next()) {
 
-            mostrartabla(colegio);
-
-            for (int i = 0; i <= tabla_registros_alumnos.getRowCount(); i++) {
-
-                txtcantidad.setText(" " + i);
+                jComboBox2.addItem(rs.getString("Asignatura_1"));
 
             }
+
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
     }
     
-    */
+    cargarcomboinstitucion(jComboBox2);
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,7 +178,7 @@ public class Frm_menu extends javax.swing.JFrame {
         jLabel7.setText("CORTE");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "I", "II", "III", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 170, -1));
 
@@ -189,7 +186,7 @@ public class Frm_menu extends javax.swing.JFrame {
         jLabel8.setText("ASIGNATURA");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Matematicas III D1", "Estructura de Datos D1", "Fisica II D!", "Algebra Lineal D1", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 170, -1));
 

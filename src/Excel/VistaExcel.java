@@ -1,6 +1,7 @@
 package Excel;
 
 import Excel.ControladorExcel;
+import Metodos_sql.ConexionBD;
 import borrador.Frm_login;
 import borrador.Frm_menu;
 import javax.swing.ImageIcon;
@@ -8,6 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import borrador.persona;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaExcel extends javax.swing.JFrame {
 
@@ -30,6 +37,43 @@ public class VistaExcel extends javax.swing.JFrame {
         */
         //Frm_login nombre = new Frm_login();
         //jLabel_Nombre.setText("BIENVENIDO "+nombre.usuario.toUpperCase());
+        
+        try{
+            
+            DefaultTableModel modelo = new DefaultTableModel ();
+            DatosExcel.setModel(modelo);
+            PreparedStatement ps = null;
+            ResultSet rs = null; 
+            ConexionBD conn = new ConexionBD();
+            Connection con = ConexionBD.conectar();
+            
+            String sql = "SELECT Identificacion, Nombre_apellidos_estudiante, FROM estudiantes ";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();
+            
+            modelo.addColumn("Id");
+            modelo.addColumn("Nombre");
+            modelo.addColumn(" ");
+            modelo.addColumn(" ");
+            
+            
+            while (rs.next()){
+                Object [] filas = new Object[cantidadColumnas];
+                
+                for (int i = 0; i<cantidadColumnas;i++){
+                    
+                    filas[i] = rs.getObject(i+1);
+                    
+                }
+                modelo.addRow(filas);
+            }
+            
+        }catch(SQLException ex){
+            System.err.println(ex.toString());
+        }
         
         
     }
