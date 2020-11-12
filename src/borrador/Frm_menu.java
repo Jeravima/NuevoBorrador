@@ -43,6 +43,7 @@ public class Frm_menu extends javax.swing.JFrame {
         }
 
         initComponents();
+        llenarComboMaterias(jComboBox2);
         setIconImage(new ImageIcon(getClass().getResource("../Imagenes/icono.png")).getImage());
         setSize(487, 460);
         setLocationRelativeTo(null);
@@ -64,6 +65,8 @@ public class Frm_menu extends javax.swing.JFrame {
               
 
     }
+    Frm_login profesor = new Frm_login();
+   String  Id_profesor = profesor.id_profesor;
 
     
     public void llenarComboMaterias(JComboBox jComboBox2) {
@@ -89,7 +92,6 @@ public class Frm_menu extends javax.swing.JFrame {
 
     }
     
-    cargarcomboinstitucion(jComboBox2);
     
     
     @SuppressWarnings("unchecked")

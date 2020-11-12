@@ -21,8 +21,10 @@ public class Frm_login extends javax.swing.JFrame {
 
     public static String Nombre_Admin;
     public static String user;
+    public static String id_profesor;
 
     private Object cmdAceptar;
+    
 
     public Frm_login() {
         initComponents();
@@ -89,7 +91,8 @@ public class Frm_login extends javax.swing.JFrame {
 
     }
 
-  public static String Id_profesor = "1096200755";
+  
+  
 
     
     
@@ -211,7 +214,7 @@ public class Frm_login extends javax.swing.JFrame {
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
         //Evento para entrar al dar enter.
-        
+        id_profesor = txtUsuario.getText();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
             validarusuario();
